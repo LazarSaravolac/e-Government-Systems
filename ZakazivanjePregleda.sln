@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ZakazivanjePregleda", "ZakazivanjePregleda\ZakazivanjePregleda.vbproj", "{161A30E2-939C-41BD-955D-2D1844CDC587}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{161A30E2-939C-41BD-955D-2D1844CDC587}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{161A30E2-939C-41BD-955D-2D1844CDC587}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{161A30E2-939C-41BD-955D-2D1844CDC587}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{161A30E2-939C-41BD-955D-2D1844CDC587}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C0CB99E-CF13-4F96-A0B1-3BB5D12E9DA3}
+	EndGlobalSection
+EndGlobal

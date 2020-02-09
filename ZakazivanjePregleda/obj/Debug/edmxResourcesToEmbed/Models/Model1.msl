@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ZakazivanjePregledaModelStoreContainer" CdmEntityContainer="ZakazivanjePregledaEntities8">
+    <EntitySetMapping Name="tblHronicnaBolests">
+      <EntityTypeMapping TypeName="ZakazivanjePregledaModel.tblHronicnaBolest">
+        <MappingFragment StoreEntitySet="tblHronicnaBolest">
+          <ScalarProperty Name="HronicnaBolestID" ColumnName="HronicnaBolestID" />
+          <ScalarProperty Name="DijagnozaBolesti" ColumnName="DijagnozaBolesti" />
+          <ScalarProperty Name="DatumPostavljanja" ColumnName="DatumPostavljanja" />
+          <ScalarProperty Name="Terapija" ColumnName="Terapija" />
+          <ScalarProperty Name="DatumPoslednjeKontrole" ColumnName="DatumPoslednjeKontrole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblKartons">
+      <EntityTypeMapping TypeName="ZakazivanjePregledaModel.tblKarton">
+        <MappingFragment StoreEntitySet="tblKarton">
+          <ScalarProperty Name="KartonID" ColumnName="KartonID" />
+          <ScalarProperty Name="Napomena" ColumnName="Napomena" />
+          <ScalarProperty Name="HronicnaBolest" ColumnName="HronicnaBolest" />
+          <ScalarProperty Name="Visina" ColumnName="Visina" />
+          <ScalarProperty Name="Tezina" ColumnName="Tezina" />
+          <ScalarProperty Name="Upozorenje" ColumnName="Upozorenje" />
+          <ScalarProperty Name="IzabraniLekar" ColumnName="IzabraniLekar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLekars">
+      <EntityTypeMapping TypeName="ZakazivanjePregledaModel.tblLekar">
+        <MappingFragment StoreEntitySet="tblLekar">
+          <ScalarProperty Name="LekarID" ColumnName="LekarID" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="Specijalista" ColumnName="Specijalista" />
+          <ScalarProperty Name="Ustanova" ColumnName="Ustanova" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblOsiguranjes">
+      <EntityTypeMapping TypeName="ZakazivanjePregledaModel.tblOsiguranje">
+        <MappingFragment StoreEntitySet="tblOsiguranje">
+          <ScalarProperty Name="OsiguranjeID" ColumnName="OsiguranjeID" />
+          <ScalarProperty Name="VrstaOsiguranja" ColumnName="VrstaOsiguranja" />
+          <ScalarProperty Name="BrojPolise" ColumnName="BrojPolise" />
+          <ScalarProperty Name="IzdavacOsiguranja" ColumnName="IzdavacOsiguranja" />
+          <ScalarProperty Name="DatumIzdavanjaOsiguranja" ColumnName="DatumIzdavanjaOsiguranja" />
+          <ScalarProperty Name="DatumIstekaOsiguranja" ColumnName="DatumIstekaOsiguranja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPacijents">
+      <EntityTypeMapping TypeName="ZakazivanjePregledaModel.tblPacijent">
+        <MappingFragment StoreEntitySet="tblPacijent">
+          <ScalarProperty Name="PacijentID" ColumnName="PacijentID" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="LBO" ColumnName="LBO" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="DatumRodjenja" ColumnName="DatumRodjenja" />
+          <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+          <ScalarProperty Name="Osiguranje" ColumnName="Osiguranje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUstanovas">
+      <EntityTypeMapping TypeName="ZakazivanjePregledaModel.tblUstanova">
+        <MappingFragment StoreEntitySet="tblUstanova">
+          <ScalarProperty Name="UstanovaID" ColumnName="UstanovaID" />
+          <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+          <ScalarProperty Name="VrstaUstanove" ColumnName="VrstaUstanove" />
+          <ScalarProperty Name="Direktor" ColumnName="Direktor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblZakPregledas">
+      <EntityTypeMapping TypeName="ZakazivanjePregledaModel.tblZakPregleda">
+        <MappingFragment StoreEntitySet="tblZakPregleda">
+          <ScalarProperty Name="ZakazivanjeID" ColumnName="ZakazivanjeID" />
+          <ScalarProperty Name="Lekar" ColumnName="Lekar" />
+          <ScalarProperty Name="Pacijent" ColumnName="Pacijent" />
+          <ScalarProperty Name="DatumPocetkaPregleda" ColumnName="DatumPocetkaPregleda" />
+          <ScalarProperty Name="DatumZavrsetkaPregleda" ColumnName="DatumZavrsetkaPregleda" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwHronicnaBolests">
+      <EntityTypeMapping TypeName="ZakazivanjePregledaModel.vwHronicnaBolest">
+        <MappingFragment StoreEntitySet="vwHronicnaBolest">
+          <ScalarProperty Name="HronicnaBolestID" ColumnName="HronicnaBolestID" />
+          <ScalarProperty Name="DijagnozaBolesti" ColumnName="DijagnozaBolesti" />
+          <ScalarProperty Name="DatumPostavljanja" ColumnName="DatumPostavljanja" />
+          <ScalarProperty Name="Terapija" ColumnName="Terapija" />
+          <ScalarProperty Name="DatumPoslednjeKontrole" ColumnName="DatumPoslednjeKontrole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwKartons">
+      <EntityTypeMapping TypeName="ZakazivanjePregledaModel.vwKarton">
+        <MappingFragment StoreEntitySet="vwKarton">
+          <ScalarProperty Name="KartonID" ColumnName="KartonID" />
+          <ScalarProperty Name="Napomena" ColumnName="Napomena" />
+          <ScalarProperty Name="HornicnaBolest" ColumnName="HornicnaBolest" />
+          <ScalarProperty Name="Visina" ColumnName="Visina" />
+          <ScalarProperty Name="Tezina" ColumnName="Tezina" />
+          <ScalarProperty Name="OsnovOsiguranja" ColumnName="OsnovOsiguranja" />
+          <ScalarProperty Name="Upozorenje" ColumnName="Upozorenje" />
+          <ScalarProperty Name="IzabraniLekar" ColumnName="IzabraniLekar" />
+          <ScalarProperty Name="DijagnozaBolesti" ColumnName="DijagnozaBolesti" />
+          <ScalarProperty Name="DatumPoslednjeKontrole" ColumnName="DatumPoslednjeKontrole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwLekars">
+      <EntityTypeMapping TypeName="ZakazivanjePregledaModel.vwLekar">
+        <MappingFragment StoreEntitySet="vwLekar">
+          <ScalarProperty Name="LekarID" ColumnName="LekarID" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="Specijalista" ColumnName="Specijalista" />
+          <ScalarProperty Name="Ustanova" ColumnName="Ustanova" />
+          <ScalarProperty Name="VrstaUstanove" ColumnName="VrstaUstanove" />
+          <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwOsiguranjes">
+      <EntityTypeMapping TypeName="ZakazivanjePregledaModel.vwOsiguranje">
+        <MappingFragment StoreEntitySet="vwOsiguranje">
+          <ScalarProperty Name="OsiguranjeID" ColumnName="OsiguranjeID" />
+          <ScalarProperty Name="VrstaOsiguranja" ColumnName="VrstaOsiguranja" />
+          <ScalarProperty Name="BrojPolise" ColumnName="BrojPolise" />
+          <ScalarProperty Name="IzdavacOsiguranja" ColumnName="IzdavacOsiguranja" />
+          <ScalarProperty Name="DatumIzdavanjaOsiguranja" ColumnName="DatumIzdavanjaOsiguranja" />
+          <ScalarProperty Name="DatumIstekaOsiguranja" ColumnName="DatumIstekaOsiguranja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwPacijents">
+      <EntityTypeMapping TypeName="ZakazivanjePregledaModel.vwPacijent">
+        <MappingFragment StoreEntitySet="vwPacijent">
+          <ScalarProperty Name="IzabraniLekar" ColumnName="IzabraniLekar" />
+          <ScalarProperty Name="PacijentID" ColumnName="PacijentID" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="LBO" ColumnName="LBO" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="DatumRodjenja" ColumnName="DatumRodjenja" />
+          <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+          <ScalarProperty Name="Osiguranje" ColumnName="Osiguranje" />
+          <ScalarProperty Name="Upozorenje" ColumnName="Upozorenje" />
+          <ScalarProperty Name="DatumIzdavanjaOsiguranja" ColumnName="DatumIzdavanjaOsiguranja" />
+          <ScalarProperty Name="DatumIstekaOsiguranja" ColumnName="DatumIstekaOsiguranja" />
+          <ScalarProperty Name="BrojPolise" ColumnName="BrojPolise" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwUstanovas">
+      <EntityTypeMapping TypeName="ZakazivanjePregledaModel.vwUstanova">
+        <MappingFragment StoreEntitySet="vwUstanova">
+          <ScalarProperty Name="UstanovaID" ColumnName="UstanovaID" />
+          <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+          <ScalarProperty Name="VrstaUstanove" ColumnName="VrstaUstanove" />
+          <ScalarProperty Name="Direktor" ColumnName="Direktor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwZakazivanjePregledas">
+      <EntityTypeMapping TypeName="ZakazivanjePregledaModel.vwZakazivanjePregleda">
+        <MappingFragment StoreEntitySet="vwZakazivanjePregleda">
+          <ScalarProperty Name="ZakazivanjeID" ColumnName="ZakazivanjeID" />
+          <ScalarProperty Name="Lekar" ColumnName="Lekar" />
+          <ScalarProperty Name="Pacijent" ColumnName="Pacijent" />
+          <ScalarProperty Name="DatumPocetkaPregleda" ColumnName="DatumPocetkaPregleda" />
+          <ScalarProperty Name="DatumZavrsetkaPregleda" ColumnName="DatumZavrsetkaPregleda" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="LBO" ColumnName="LBO" />
+          <ScalarProperty Name="Ustanova" ColumnName="Ustanova" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="Specijalista" ColumnName="Specijalista" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

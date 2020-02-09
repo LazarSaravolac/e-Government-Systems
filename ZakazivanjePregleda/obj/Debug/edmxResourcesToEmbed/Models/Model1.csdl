@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ZakazivanjePregledaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblHronicnaBolest">
+    <Key>
+      <PropertyRef Name="HronicnaBolestID" />
+    </Key>
+    <Property Name="HronicnaBolestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DijagnozaBolesti" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DatumPostavljanja" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Terapija" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DatumPoslednjeKontrole" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="tblKartons" Relationship="Self.FK_tblKarton_tblHronicnaBolest" FromRole="tblHronicnaBolest" ToRole="tblKarton" />
+  </EntityType>
+  <EntityType Name="tblKarton">
+    <Key>
+      <PropertyRef Name="KartonID" />
+    </Key>
+    <Property Name="KartonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Napomena" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HronicnaBolest" Type="Int32" />
+    <Property Name="Visina" Type="Int32" />
+    <Property Name="Tezina" Type="Int32" />
+    <Property Name="Upozorenje" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IzabraniLekar" Type="Int32" />
+    <NavigationProperty Name="tblHronicnaBolest" Relationship="Self.FK_tblKarton_tblHronicnaBolest" FromRole="tblKarton" ToRole="tblHronicnaBolest" />
+    <NavigationProperty Name="tblLekar" Relationship="Self.FK_tblKarton_tblLekar" FromRole="tblKarton" ToRole="tblLekar" />
+    <NavigationProperty Name="tblPacijents" Relationship="Self.FK_tblPacijent_tblKarton" FromRole="tblKarton" ToRole="tblPacijent" />
+  </EntityType>
+  <EntityType Name="tblLekar">
+    <Key>
+      <PropertyRef Name="LekarID" />
+    </Key>
+    <Property Name="LekarID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Specijalista" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ustanova" Type="Int32" />
+    <NavigationProperty Name="tblKartons" Relationship="Self.FK_tblKarton_tblLekar" FromRole="tblLekar" ToRole="tblKarton" />
+    <NavigationProperty Name="tblUstanova" Relationship="Self.FK_tblLekar_tblUstanova" FromRole="tblLekar" ToRole="tblUstanova" />
+    <NavigationProperty Name="tblZakPregledas" Relationship="Self.FK_tblZakPregleda_tblLekar" FromRole="tblLekar" ToRole="tblZakPregleda" />
+  </EntityType>
+  <EntityType Name="tblOsiguranje">
+    <Key>
+      <PropertyRef Name="OsiguranjeID" />
+    </Key>
+    <Property Name="OsiguranjeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VrstaOsiguranja" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BrojPolise" Type="Int32" Nullable="false" />
+    <Property Name="IzdavacOsiguranja" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DatumIzdavanjaOsiguranja" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DatumIstekaOsiguranja" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="tblPacijents" Relationship="Self.FK_tblPacijent_tblOsiguranje" FromRole="tblOsiguranje" ToRole="tblPacijent" />
+  </EntityType>
+  <EntityType Name="tblPacijent">
+    <Key>
+      <PropertyRef Name="PacijentID" />
+    </Key>
+    <Property Name="PacijentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LBO" Type="Int32" />
+    <Property Name="Telefon" Type="Int32" />
+    <Property Name="DatumRodjenja" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Adresa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Osiguranje" Type="Int32" />
+    <NavigationProperty Name="tblKarton" Relationship="Self.FK_tblPacijent_tblKarton" FromRole="tblPacijent" ToRole="tblKarton" />
+    <NavigationProperty Name="tblOsiguranje" Relationship="Self.FK_tblPacijent_tblOsiguranje" FromRole="tblPacijent" ToRole="tblOsiguranje" />
+    <NavigationProperty Name="tblZakPregledas" Relationship="Self.FK_tblZakPregleda_tblPacijent" FromRole="tblPacijent" ToRole="tblZakPregleda" />
+  </EntityType>
+  <EntityType Name="tblUstanova">
+    <Key>
+      <PropertyRef Name="UstanovaID" />
+    </Key>
+    <Property Name="UstanovaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Adresa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VrstaUstanove" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Direktor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tblLekars" Relationship="Self.FK_tblLekar_tblUstanova" FromRole="tblUstanova" ToRole="tblLekar" />
+  </EntityType>
+  <EntityType Name="tblZakPregleda">
+    <Key>
+      <PropertyRef Name="ZakazivanjeID" />
+    </Key>
+    <Property Name="ZakazivanjeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Lekar" Type="Int32" />
+    <Property Name="Pacijent" Type="Int32" />
+    <Property Name="DatumPocetkaPregleda" Type="DateTime" Precision="3" />
+    <Property Name="DatumZavrsetkaPregleda" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblLekar" Relationship="Self.FK_tblZakPregleda_tblLekar" FromRole="tblZakPregleda" ToRole="tblLekar" />
+    <NavigationProperty Name="tblPacijent" Relationship="Self.FK_tblZakPregleda_tblPacijent" FromRole="tblZakPregleda" ToRole="tblPacijent" />
+  </EntityType>
+  <EntityType Name="vwHronicnaBolest">
+    <Key>
+      <PropertyRef Name="HronicnaBolestID" />
+    </Key>
+    <Property Name="HronicnaBolestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DijagnozaBolesti" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DatumPostavljanja" Type="DateTime" Precision="0" />
+    <Property Name="Terapija" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DatumPoslednjeKontrole" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="vwKarton">
+    <Key>
+      <PropertyRef Name="KartonID" />
+    </Key>
+    <Property Name="KartonID" Type="Int32" Nullable="false" />
+    <Property Name="Napomena" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HornicnaBolest" Type="Int32" />
+    <Property Name="Visina" Type="Int32" />
+    <Property Name="Tezina" Type="Int32" />
+    <Property Name="OsnovOsiguranja" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Upozorenje" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IzabraniLekar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DijagnozaBolesti" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DatumPoslednjeKontrole" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="vwLekar">
+    <Key>
+      <PropertyRef Name="LekarID" />
+    </Key>
+    <Property Name="LekarID" Type="Int32" Nullable="false" />
+    <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Specijalista" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ustanova" Type="Int32" />
+    <Property Name="VrstaUstanove" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Adresa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vwOsiguranje">
+    <Key>
+      <PropertyRef Name="OsiguranjeID" />
+    </Key>
+    <Property Name="OsiguranjeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VrstaOsiguranja" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BrojPolise" Type="Int32" />
+    <Property Name="IzdavacOsiguranja" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DatumIzdavanjaOsiguranja" Type="DateTime" Precision="0" />
+    <Property Name="DatumIstekaOsiguranja" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="vwPacijent">
+    <Key>
+      <PropertyRef Name="PacijentID" />
+      <PropertyRef Name="Ime" />
+      <PropertyRef Name="Prezime" />
+      <PropertyRef Name="DatumRodjenja" />
+      <PropertyRef Name="DatumIzdavanjaOsiguranja" />
+      <PropertyRef Name="DatumIstekaOsiguranja" />
+      <PropertyRef Name="BrojPolise" />
+    </Key>
+    <Property Name="IzabraniLekar" Type="Int32" />
+    <Property Name="PacijentID" Type="Int32" Nullable="false" />
+    <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LBO" Type="Int32" />
+    <Property Name="Telefon" Type="Int32" />
+    <Property Name="DatumRodjenja" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Adresa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Osiguranje" Type="Int32" />
+    <Property Name="Upozorenje" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DatumIzdavanjaOsiguranja" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DatumIstekaOsiguranja" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="BrojPolise" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vwUstanova">
+    <Key>
+      <PropertyRef Name="UstanovaID" />
+    </Key>
+    <Property Name="UstanovaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Adresa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VrstaUstanove" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Direktor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vwZakazivanjePregleda">
+    <Key>
+      <PropertyRef Name="ZakazivanjeID" />
+      <PropertyRef Name="Ime" />
+      <PropertyRef Name="Prezime" />
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="Specijalista" />
+    </Key>
+    <Property Name="ZakazivanjeID" Type="Int32" Nullable="false" />
+    <Property Name="Lekar" Type="Int32" />
+    <Property Name="Pacijent" Type="Int32" />
+    <Property Name="DatumPocetkaPregleda" Type="DateTime" Precision="3" />
+    <Property Name="DatumZavrsetkaPregleda" Type="DateTime" Precision="3" />
+    <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LBO" Type="Int32" />
+    <Property Name="Ustanova" Type="Int32" />
+    <Property Name="Expr1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Specijalista" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tblKarton_tblHronicnaBolest">
+    <End Role="tblHronicnaBolest" Type="Self.tblHronicnaBolest" Multiplicity="0..1" />
+    <End Role="tblKarton" Type="Self.tblKarton" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblHronicnaBolest">
+        <PropertyRef Name="HronicnaBolestID" />
+      </Principal>
+      <Dependent Role="tblKarton">
+        <PropertyRef Name="HronicnaBolest" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblKarton_tblLekar">
+    <End Role="tblLekar" Type="Self.tblLekar" Multiplicity="0..1" />
+    <End Role="tblKarton" Type="Self.tblKarton" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblLekar">
+        <PropertyRef Name="LekarID" />
+      </Principal>
+      <Dependent Role="tblKarton">
+        <PropertyRef Name="IzabraniLekar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPacijent_tblKarton">
+    <End Role="tblKarton" Type="Self.tblKarton" Multiplicity="0..1" />
+    <End Role="tblPacijent" Type="Self.tblPacijent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblKarton">
+        <PropertyRef Name="KartonID" />
+      </Principal>
+      <Dependent Role="tblPacijent">
+        <PropertyRef Name="LBO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblLekar_tblUstanova">
+    <End Role="tblUstanova" Type="Self.tblUstanova" Multiplicity="0..1" />
+    <End Role="tblLekar" Type="Self.tblLekar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUstanova">
+        <PropertyRef Name="UstanovaID" />
+      </Principal>
+      <Dependent Role="tblLekar">
+        <PropertyRef Name="Ustanova" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblZakPregleda_tblLekar">
+    <End Role="tblLekar" Type="Self.tblLekar" Multiplicity="0..1" />
+    <End Role="tblZakPregleda" Type="Self.tblZakPregleda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblLekar">
+        <PropertyRef Name="LekarID" />
+      </Principal>
+      <Dependent Role="tblZakPregleda">
+        <PropertyRef Name="Lekar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPacijent_tblOsiguranje">
+    <End Role="tblOsiguranje" Type="Self.tblOsiguranje" Multiplicity="0..1" />
+    <End Role="tblPacijent" Type="Self.tblPacijent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblOsiguranje">
+        <PropertyRef Name="OsiguranjeID" />
+      </Principal>
+      <Dependent Role="tblPacijent">
+        <PropertyRef Name="Osiguranje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblZakPregleda_tblPacijent">
+    <End Role="tblPacijent" Type="Self.tblPacijent" Multiplicity="0..1" />
+    <End Role="tblZakPregleda" Type="Self.tblZakPregleda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPacijent">
+        <PropertyRef Name="PacijentID" />
+      </Principal>
+      <Dependent Role="tblZakPregleda">
+        <PropertyRef Name="Pacijent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ZakazivanjePregledaEntities8" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblHronicnaBolests" EntityType="Self.tblHronicnaBolest" />
+    <EntitySet Name="tblKartons" EntityType="Self.tblKarton" />
+    <EntitySet Name="tblLekars" EntityType="Self.tblLekar" />
+    <EntitySet Name="tblOsiguranjes" EntityType="Self.tblOsiguranje" />
+    <EntitySet Name="tblPacijents" EntityType="Self.tblPacijent" />
+    <EntitySet Name="tblUstanovas" EntityType="Self.tblUstanova" />
+    <EntitySet Name="tblZakPregledas" EntityType="Self.tblZakPregleda" />
+    <EntitySet Name="vwHronicnaBolests" EntityType="Self.vwHronicnaBolest" />
+    <EntitySet Name="vwKartons" EntityType="Self.vwKarton" />
+    <EntitySet Name="vwLekars" EntityType="Self.vwLekar" />
+    <EntitySet Name="vwOsiguranjes" EntityType="Self.vwOsiguranje" />
+    <EntitySet Name="vwPacijents" EntityType="Self.vwPacijent" />
+    <EntitySet Name="vwUstanovas" EntityType="Self.vwUstanova" />
+    <EntitySet Name="vwZakazivanjePregledas" EntityType="Self.vwZakazivanjePregleda" />
+    <AssociationSet Name="FK_tblKarton_tblHronicnaBolest" Association="Self.FK_tblKarton_tblHronicnaBolest">
+      <End Role="tblHronicnaBolest" EntitySet="tblHronicnaBolests" />
+      <End Role="tblKarton" EntitySet="tblKartons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblKarton_tblLekar" Association="Self.FK_tblKarton_tblLekar">
+      <End Role="tblLekar" EntitySet="tblLekars" />
+      <End Role="tblKarton" EntitySet="tblKartons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPacijent_tblKarton" Association="Self.FK_tblPacijent_tblKarton">
+      <End Role="tblKarton" EntitySet="tblKartons" />
+      <End Role="tblPacijent" EntitySet="tblPacijents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblLekar_tblUstanova" Association="Self.FK_tblLekar_tblUstanova">
+      <End Role="tblUstanova" EntitySet="tblUstanovas" />
+      <End Role="tblLekar" EntitySet="tblLekars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblZakPregleda_tblLekar" Association="Self.FK_tblZakPregleda_tblLekar">
+      <End Role="tblLekar" EntitySet="tblLekars" />
+      <End Role="tblZakPregleda" EntitySet="tblZakPregledas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPacijent_tblOsiguranje" Association="Self.FK_tblPacijent_tblOsiguranje">
+      <End Role="tblOsiguranje" EntitySet="tblOsiguranjes" />
+      <End Role="tblPacijent" EntitySet="tblPacijents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblZakPregleda_tblPacijent" Association="Self.FK_tblZakPregleda_tblPacijent">
+      <End Role="tblPacijent" EntitySet="tblPacijents" />
+      <End Role="tblZakPregleda" EntitySet="tblZakPregledas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

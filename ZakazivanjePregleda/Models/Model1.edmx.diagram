@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9d51486a1efa41869bf266d9139f8314" Name="Diagram1">
+        <EntityTypeShape EntityType="ZakazivanjePregledaModel.tblHronicnaBolest" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZakazivanjePregledaModel.tblKarton" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZakazivanjePregledaModel.tblLekar" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZakazivanjePregledaModel.tblOsiguranje" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZakazivanjePregledaModel.tblPacijent" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZakazivanjePregledaModel.tblUstanova" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZakazivanjePregledaModel.tblZakPregleda" Width="1.5" PointX="9.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZakazivanjePregledaModel.vwHronicnaBolest" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZakazivanjePregledaModel.vwKarton" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZakazivanjePregledaModel.vwLekar" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZakazivanjePregledaModel.vwOsiguranje" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZakazivanjePregledaModel.vwPacijent" Width="1.5" PointX="6.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZakazivanjePregledaModel.vwUstanova" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZakazivanjePregledaModel.vwZakazivanjePregleda" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="ZakazivanjePregledaModel.FK_tblKarton_tblHronicnaBolest" ManuallyRouted="false" />
+        <AssociationConnector Association="ZakazivanjePregledaModel.FK_tblKarton_tblLekar" ManuallyRouted="false" />
+        <AssociationConnector Association="ZakazivanjePregledaModel.FK_tblPacijent_tblKarton" ManuallyRouted="false" />
+        <AssociationConnector Association="ZakazivanjePregledaModel.FK_tblLekar_tblUstanova" ManuallyRouted="false" />
+        <AssociationConnector Association="ZakazivanjePregledaModel.FK_tblZakPregleda_tblLekar" ManuallyRouted="false" />
+        <AssociationConnector Association="ZakazivanjePregledaModel.FK_tblPacijent_tblOsiguranje" ManuallyRouted="false" />
+        <AssociationConnector Association="ZakazivanjePregledaModel.FK_tblZakPregleda_tblPacijent" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
