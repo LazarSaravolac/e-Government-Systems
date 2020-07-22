@@ -21,7 +21,7 @@ End Code
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(Function(model) model.HronicnaBolest, "HronicnaBolest", htmlAttributes:= New With { .class = "control-label col-md-2" })
+            @Html.LabelFor(Function(model) model.HronicnaBolest, "Hronicna Bolest", htmlAttributes:=New With {.class = "control-label col-md-2"})
             <div class="col-md-10">
                 @Html.DropDownList("HronicnaBolest", Nothing, htmlAttributes:= New With { .class = "form-control" })
                 @Html.ValidationMessageFor(Function(model) model.HronicnaBolest, "", New With { .class = "text-danger" })
@@ -53,7 +53,7 @@ End Code
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(Function(model) model.IzabraniLekar, "IzabraniLekar", htmlAttributes:= New With { .class = "control-label col-md-2" })
+            @Html.LabelFor(Function(model) model.IzabraniLekar, "Izabrani Lekar", htmlAttributes:=New With {.class = "control-label col-md-2"})
             <div class="col-md-10">
                 @Html.DropDownList("IzabraniLekar", Nothing, htmlAttributes:= New With { .class = "form-control" })
                 @Html.ValidationMessageFor(Function(model) model.IzabraniLekar, "", New With { .class = "text-danger" })

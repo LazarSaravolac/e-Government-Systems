@@ -44,6 +44,6 @@ End Code
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Izmena", "Izmena", New With {.id = Model.HronicnaBolestID}) |
+    @Html.ActionLink("Izmena", "Edit", New With {.id = Model.HronicnaBolestID}) |
     @Html.ActionLink("Nazad", "Index")
 </p>

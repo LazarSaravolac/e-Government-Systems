@@ -34,8 +34,8 @@ Namespace Controllers
 
         ' GET: tblKartons/Create
         Function Create() As ActionResult
-            ViewBag.HronicnaBolest = New SelectList(db.tblHronicnaBolests, "HronicnaBolestID", "HronicnaBolestID")
-            ViewBag.IzabraniLekar = New SelectList(db.tblLekars, "LekarID", "LekarID")
+            ViewBag.HronicnaBolest = New SelectList(db.tblHronicnaBolests, "HronicnaBolestID", "DijagnozaBolesti")
+            ViewBag.IzabraniLekar = New SelectList(db.tblLekars, "LekarID", "Prezime")
             Return View()
         End Function
 
@@ -51,7 +51,7 @@ Namespace Controllers
                 Return RedirectToAction("Index")
             End If
             ViewBag.HronicnaBolest = New SelectList(db.tblHronicnaBolests, "HronicnaBolestID", "DijagnozaBolesti", tblKarton.HronicnaBolest)
-            ViewBag.IzabraniLekar = New SelectList(db.tblLekars, "LekarID", "Ime", tblKarton.IzabraniLekar)
+            ViewBag.IzabraniLekar = New SelectList(db.tblLekars, "LekarID", "Prezime", tblKarton.IzabraniLekar)
             Return View(tblKarton)
         End Function
 
@@ -64,8 +64,8 @@ Namespace Controllers
             If IsNothing(tblKarton) Then
                 Return HttpNotFound()
             End If
-            ViewBag.HronicnaBolest = New SelectList(db.tblHronicnaBolests, "HronicnaBolestID", "HronicnaBolestID", tblKarton.HronicnaBolest)
-            ViewBag.IzabraniLekar = New SelectList(db.tblLekars, "LekarID", "LekarID", tblKarton.IzabraniLekar)
+            ViewBag.HronicnaBolest = New SelectList(db.tblHronicnaBolests, "HronicnaBolestID", "DijagnozaBolesti", tblKarton.HronicnaBolest)
+            ViewBag.IzabraniLekar = New SelectList(db.tblLekars, "LekarID", "Prezime", tblKarton.IzabraniLekar)
             Return View(tblKarton)
         End Function
 

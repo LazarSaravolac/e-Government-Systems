@@ -1,6 +1,6 @@
 ﻿@ModelType IEnumerable(Of ZakazivanjePregleda.ZakazivanjePregleda.tblKarton)
 @Code
-ViewData("Title") = "Index"
+    ViewData("Title") = "Index"
 End Code
 
 <h2>Kartoni</h2>
@@ -26,37 +26,39 @@ End Code
             Dijagnoza Bolesti
         </th>
         <th>
-            @Html.DisplayNameFor(Function(model) model.tblLekar.Ime)
+            Lekar
         </th>
         <th></th>
     </tr>
 
-@For Each item In Model
-    @<tr>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.Napomena)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.Visina)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.Tezina)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.Upozorenje)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.tblHronicnaBolest.DijagnozaBolesti)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.tblLekar.Ime)
-        </td>
-        <td>
-            @Html.ActionLink("Izmena", "Edit", New With {.id = item.KartonID}) |
-            @Html.ActionLink("Detalji", "Details", New With {.id = item.KartonID}) |
-            @Html.ActionLink("Obrisi", "Delete", New With {.id = item.KartonID})
-        </td>
-    </tr>
-Next
+    @For Each item In Model
+        @<tr>
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.Napomena)
+            </td>
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.Visina)
+            </td>
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.Tezina)
+            </td>
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.Upozorenje)
+            </td>
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.tblHronicnaBolest.DijagnozaBolesti)
+            </td>
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.tblLekar.Ime)
+                @Html.DisplayFor(Function(modelItem) item.tblLekar.Prezime)
+            </td>
+            <td>
+                @Html.ActionLink("Izmena", "Edit", New With {.id = item.KartonID}) |
+                @Html.ActionLink("Detalji", "Details", New With {.id = item.KartonID}) |
+                @Html.ActionLink("Obrisi", "Delete", New With {.id = item.KartonID})
+            </td>
+        </tr>
+    Next
 
 </table>
+@Html.ActionLink("Pocetna", "../Home/Index")

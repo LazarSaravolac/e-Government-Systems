@@ -35,7 +35,7 @@ Namespace Controllers
         ' GET: tblPacijents/Create
         Function Create() As ActionResult
             ViewBag.LBO = New SelectList(db.tblKartons, "KartonID", "KartonID")
-            ViewBag.Osiguranje = New SelectList(db.tblOsiguranjes, "OsiguranjeID", "OsiguranjeID")
+            ViewBag.Osiguranje = New SelectList(db.tblOsiguranjes, "OsiguranjeID", "BrojPolise")
             Return View()
         End Function
 
@@ -65,7 +65,7 @@ Namespace Controllers
                 Return HttpNotFound()
             End If
             ViewBag.LBO = New SelectList(db.tblKartons, "KartonID", "KartonID", tblPacijent.LBO)
-            ViewBag.Osiguranje = New SelectList(db.tblOsiguranjes, "OsiguranjeID", "OsiguranjeID", tblPacijent.Osiguranje)
+            ViewBag.Osiguranje = New SelectList(db.tblOsiguranjes, "OsiguranjeID", "BrojPolise", tblPacijent.Osiguranje)
             Return View(tblPacijent)
         End Function
 

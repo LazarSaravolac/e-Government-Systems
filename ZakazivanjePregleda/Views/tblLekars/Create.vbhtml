@@ -41,6 +41,7 @@ End Code
             <div class="col-md-10">
                 @Html.DropDownList("Ustanova", Nothing, htmlAttributes:= New With { .class = "form-control" })
                 @Html.ValidationMessageFor(Function(model) model.Ustanova, "", New With { .class = "text-danger" })
+                
             </div>
         </div>
 

@@ -34,8 +34,8 @@ Namespace Controllers
 
         ' GET: tblZakPregledas/Create
         Function Create() As ActionResult
-            ViewBag.Lekar = New SelectList(db.tblLekars, "LekarID", "LekarID")
-            ViewBag.Pacijent = New SelectList(db.tblPacijents, "PacijentID", "PacijentID")
+            ViewBag.Lekar = New SelectList(db.tblLekars, "LekarID", "Prezime")
+            ViewBag.Pacijent = New SelectList(db.tblPacijents, "PacijentID", "Prezime")
             Return View()
         End Function
 
@@ -64,8 +64,8 @@ Namespace Controllers
             If IsNothing(tblZakPregleda) Then
                 Return HttpNotFound()
             End If
-            ViewBag.Lekar = New SelectList(db.tblLekars, "LekarID", "LekarID", tblZakPregleda.Lekar)
-            ViewBag.Pacijent = New SelectList(db.tblPacijents, "PacijentID", "PacijentID", tblZakPregleda.Pacijent)
+            ViewBag.Lekar = New SelectList(db.tblLekars, "LekarID", "Prezime", tblZakPregleda.Lekar)
+            ViewBag.Pacijent = New SelectList(db.tblPacijents, "PacijentID", "Prezime", tblZakPregleda.Pacijent)
             Return View(tblZakPregleda)
         End Function
 

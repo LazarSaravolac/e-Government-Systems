@@ -16,28 +16,30 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="https://localhost:44312">Pocetna</a></li>
-                    <li><a href="https://localhost:44312/tblLekars">Lekar</a></li>
-                    <li><a href="https://localhost:44312/tblPacijents">Pacijent</a></li>
-                    <li><a href="https://localhost:44312/tblUstanovas">Ustanova</a></li>
-                    <li><a href="https://localhost:44312/tblKartons">Karton</a></li>
-                    <li><a href="https://localhost:44312/tblOsiguranjes">Osiguranje</a></li>
-                    <li><a href="https://localhost:44312/tblHronicnaBolests">Hronicna Bolest</a></li>
 
-                    <!--<li>@Html.ActionLink("Pacijent", "tblPacijents")</li>-->
-                </ul>
             </div>
+            <!--
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="https://localhost:44312">Pocetna</a></li>
+                <li><a href="https://localhost:44312/tblLekars/index">Lekar</a></li>
+                <li><a href="https://localhost:44312/tblPacijents/index">Pacijent</a></li>
+                <li><a href="https://localhost:44312/tblUstanovas/index">Ustanova</a></li>
+                <li><a href="https://localhost:44312/tblKartons/index">Karton</a></li>
+                <li><a href="https://localhost:44312/tblOsiguranjes/index">Osiguranje</a></li>
+                <li><a href="https://localhost:44312/tblHronicnaBolests/index">Hronicna Bolest</a></li>
+
+                <!--<li>@Html.ActionLink("Pacijent", "tblPacijents")</li>
+            </ul>
         </div>
+        -->
+    </div>
     </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - MVC Zakazivanje pregleda Lazar Saravolac I7 16/2019</p>
         </footer>
     </div>
 

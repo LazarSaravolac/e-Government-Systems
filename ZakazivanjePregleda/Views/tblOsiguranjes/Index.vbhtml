@@ -1,6 +1,6 @@
 ﻿@ModelType IEnumerable(Of ZakazivanjePregleda.ZakazivanjePregleda.tblOsiguranje)
 @Code
-ViewData("Title") = "Index"
+    ViewData("Title") = "Index"
 End Code
 
 <h2>Osiguranja</h2>
@@ -28,29 +28,30 @@ End Code
         <th></th>
     </tr>
 
-@For Each item In Model
-    @<tr>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.VrstaOsiguranja)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.BrojPolise)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.IzdavacOsiguranja)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.DatumIzdavanjaOsiguranja)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.DatumIstekaOsiguranja)
-        </td>
-        <td>
-            @Html.ActionLink("Izmena", "Edit", New With {.id = item.OsiguranjeID}) |
-            @Html.ActionLink("Detalji", "Details", New With {.id = item.OsiguranjeID}) |
-            @Html.ActionLink("Obrisi", "Delete", New With {.id = item.OsiguranjeID})
-        </td>
-    </tr>
-Next
+    @For Each item In Model
+        @<tr>
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.VrstaOsiguranja)
+            </td>
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.BrojPolise)
+            </td>
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.IzdavacOsiguranja)
+            </td>
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.DatumIzdavanjaOsiguranja)
+            </td>
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.DatumIstekaOsiguranja)
+            </td>
+            <td>
+                @Html.ActionLink("Izmena", "Edit", New With {.id = item.OsiguranjeID}) |
+                @Html.ActionLink("Detalji", "Details", New With {.id = item.OsiguranjeID}) |
+                @Html.ActionLink("Obrisi", "Delete", New With {.id = item.OsiguranjeID})
+            </td>
+        </tr>
+    Next
 
 </table>
+@Html.ActionLink("Pocetna", "../Home/Index")
